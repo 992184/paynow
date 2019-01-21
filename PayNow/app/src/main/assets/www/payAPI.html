@@ -1,0 +1,86 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+</head>
+<body>
+<!-- 아임포트 자바스크립트는 jQuery 기반으로 개발되었습니다 -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js" ></script>
+
+<script type="text/javascript">
+var IMP = window.IMP; // 생략가능
+IMP.init('imp34203589'); //내 가맹점코드
+var total = '<?php echo $_POST['total']; ?>';
+
+function danalpay(){
+    //onclick, onload 등 원하는 이벤트에 호출합니다
+    var total = 10000;
+    IMP.request_pay({
+        pg : 'danal', // version 1.1.0부터 지원.
+        pay_method : 'card',    //결제 방식 선택
+        merchant_uid : 'merchant_' + new Date().getTime(),  //얘를 받아다 DB건 어디건 넣어둬야함
+        name : 'PAYNOW:테스트',
+        amount : total,
+        buyer_email : 'admin@paynow.com',
+        buyer_name : '구매자이름',
+        buyer_tel : '010-1234-5678',
+        buyer_addr : '서울특별시 강남구 삼성동',
+        buyer_postcode : '123-456',
+        m_redirect_url : 'https://www.yourdomain.com/payments/complete',
+        app_scheme : 'paynow' //iamportapp에서 변경
+    }, function(rsp) {
+        if ( rsp.success ) {
+            var msg = '결제가 완료되었습니다.';
+            msg += '고유ID : ' + rsp.imp_uid;
+            msg += '상점 거래ID : ' + rsp.merchant_uid;
+            msg += '결제 금액 : ' + rsp.paid_amount;
+            msg += '카드 승인번호 : ' + rsp.apply_num;
+        } else {
+            var msg = '결제에 실패하였습니다.';
+            msg += '에러내용 : ' + rsp.error_msg;
+        }
+
+        alert(msg);
+    });
+}
+
+function kakaopay(){
+    //onclick, onload 등 원하는 이벤트에 호출합니다
+    IMP.request_pay({
+        pg : 'kakao', // version 1.1.0부터 지원.
+        pay_method : 'card',    //결제 방식 선택
+        merchant_uid : 'merchant_' + new Date().getTime(),
+        name : 'PAYNOW:테스트',
+        amount : total,
+        buyer_email : 'admin@paynow.com',
+        buyer_name : '구매자이름',
+        buyer_tel : '010-1234-5678',
+        buyer_addr : '서울특별시 강남구 삼성동',
+        buyer_postcode : '123-456',
+        m_redirect_url : 'https://www.yourdomain.com/payments/complete',
+        app_scheme : 'iamportkakao' //iamportapp에서 변경
+    }, function(rsp) {
+        if ( rsp.success ) {
+            var msg = '결제가 완료되었습니다.';
+            msg += '고유ID : ' + rsp.imp_uid;
+            msg += '상점 거래ID : ' + rsp.merchant_uid;
+            msg += '결제 금액 : ' + rsp.paid_amount;
+            msg += '카드 승인번호 : ' + rsp.apply_num;
+        } else {
+            var msg = '결제에 실패하였습니다.';
+            msg += '에러내용 : ' + rsp.error_msg;
+        }
+
+        alert(msg);
+    });
+}
+
+
+
+//TODO URLScheme정의하는 부분 추가
+</script>
+<button type="button" onclick="danalpay()">다날</button></br>
+<button type="button" onclick="kakaopay(10000)"> 카카오</button></br>
+
+</body>
+</html>

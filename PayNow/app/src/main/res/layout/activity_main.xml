@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/profileBtn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="안녕하세요. 빠른 결제 PAYNOW입니다."
+            android:textStyle="bold"
+            android:background="@color/colorGray"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginRight="20dp"
+                android:gravity="left">
+
+                <ImageButton
+                    android:id="@+id/shoppingListBtn"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:background="@color/colorBlack"
+                    android:text="Shopping List"
+                    android:padding="0sp"
+                    android:scaleType="centerInside"
+                    android:layout_marginTop="20sp"
+                    android:src="@drawable/shoppingcart" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorWhite"
+                    android:text="Shopping List"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:layout_marginLeft="20dp"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/completeListBtn"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_marginTop="20sp"
+                    android:background="@color/colorBlack"
+                    android:padding="0sp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/receipt"
+                    android:text="Receipt List" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Receipt List"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/mainPayBtn"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:background="@color/colorBlack"
+                android:padding="0sp"
+                android:scaleType="centerInside"
+                android:src="@drawable/pay"
+                android:text="Pay Check" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pay"
+                android:textColor="@color/colorWhite"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/barcodeFAB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleX="1.7"
+            android:scaleY="1.7"
+            android:layout_gravity="right"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="20dp"
+            android:padding="0sp"
+            android:scaleType="center"
+            android:clickable="true"
+            android:src="@drawable/barcode"
+            app:fabSize="mini"
+            app:backgroundTint="@android:color/background_light"
+            android:background="@color/colorWhite"
+            android:adjustViewBounds="true"
+            tools:layout_editor_absoluteX="340dp"
+            tools:layout_editor_absoluteY="523dp" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

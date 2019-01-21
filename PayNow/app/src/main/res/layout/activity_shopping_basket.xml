@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ShoppingBasketActivity">
+
+    <Button
+        android:id="@+id/profileBtn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:text="장바구니 페이지입니다. 구매할 상품만 남겨주세요."
+        android:textStyle="bold"
+        android:background="@color/colorGray"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="350dp"
+        android:background="@color/colorWhite"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:text="상품코드"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textColor="@color/colorBlack" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"
+                android:textColor="@color/colorBlack"
+                android:text="상품명"
+                android:textSize="20dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:layout_marginRight="60dp"
+                android:layout_weight="1"
+                android:textColor="@color/colorBlack"
+                android:text="가격"
+                android:textSize="20dp"
+                android:textStyle="bold"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="---------------------------------------------"
+                android:textColor="@color/colorBlack"/>
+
+        </RelativeLayout>
+
+        <!-- 장바구니 -->
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="6"
+
+            android:padding="5dp"
+            android:textColor="@color/colorBlack"
+            android:id="@+id/listView_shopping_list" >
+        </android.support.v7.widget.RecyclerView>
+
+
+        <!-- 결제버튼 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <Button
+                android:id="@+id/payment_shoppingBtn"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:drawablePadding="4dp"
+                android:text="합계확인"
+                android:background="@color/colorYellow"
+                android:padding="0sp"
+                android:scaleType="fitCenter"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textAlignment="center"
+        android:text="상품은 터치해서 삭제할 수 있습니다."
+        android:textStyle="bold"
+        android:background="@color/colorGray"
+        android:layout_marginTop="40dp"/>
+
+
+
+</LinearLayout>
